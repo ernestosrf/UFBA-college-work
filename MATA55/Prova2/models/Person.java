@@ -1,4 +1,4 @@
-package models;
+package MATA55.Prova2.models;
 
 import java.util.Date;
 

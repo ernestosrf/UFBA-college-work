@@ -1,4 +1,4 @@
-package models;
+package MATA55.Prova2.models;
 
 public class GeneralChair extends Organizers{
     public void judgeInscription(){
@@ -6,6 +6,6 @@ public class GeneralChair extends Organizers{
     }
 
     public String deliverCertification(){
-        
+        return "oi"; // just to avoid error warnings
     }
 }

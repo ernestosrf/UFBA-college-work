@@ -1,6 +1,7 @@
+package MATA55.Prova2;
 import java.util.Scanner;
 import java.util.ArrayList;
-import models.Person;
+import MATA55.Prova2.models.Person;
 
 public class App {
     public static void main(String[] args) throws Exception {

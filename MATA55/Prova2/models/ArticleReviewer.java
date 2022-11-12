@@ -1,4 +1,4 @@
-package models;
+package MATA55.Prova2.models;
 
 public class ArticleReviewer extends Specialists {
     public int sendReview(){
