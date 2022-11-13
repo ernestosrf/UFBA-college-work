@@ -38,7 +38,7 @@ public class App {
                     
 
                     for(int i = 0 ; i< usersList.size(); i++){
-                        if(usersList.get(i).cpf.equals(cpf) ||usersList.get(i).password.equals(password)){
+                        if(usersList.get(i).getCpf().equals(cpf) ||usersList.get(i).getPassword().equals(password)){
                             loggedUser  = usersList.get(i);
                         }
                     }
@@ -55,15 +55,19 @@ public class App {
                 Person newAccount = new Person();
                 System.out.println("-------------------------");
                 System.out.print("Digite o seu nome: ");
-                newAccount.name = sc.nextLine();
+                newAccount.setName(sc.nextLine());
     
                 System.out.println("-------------------------");
                 System.out.print("Digite o seu CPF: ");
-                newAccount.cpf = sc.nextLine();
+                newAccount.setCpf(sc.nextLine());
     
                 System.out.println("-------------------------");
                 System.out.print("Digite o seu Titulo acadêmico: ");
-                newAccount.academicTitle = sc.nextLine();
+                newAccount.setAcademicTitle(sc.nextLine());
+
+                System.out.println("-------------------------");
+                System.out.print("Digite a sua Data de Nascimento: ");
+                newAccount.setBirthdate(sc.next());
 
                 System.out.println("-------------------------");
                 System.out.println("Selecione o seu tipo de participação: ");
@@ -76,11 +80,11 @@ public class App {
     
                 switch(tempOption){
                     case 1:
-                    newAccount.type = "participant";
-                    newAccount.category = "participant";
+                    newAccount.setType("participant");
+                    newAccount.setCategory("participant");
                     break;
                     case 2:
-                    newAccount.type = "organizer";
+                    newAccount.setType("organizer");
                     System.out.println("-------------------------");
                     System.out.println("Selecione a sua categoria de organizador: ");
                     System.out.println("1 - Program Chair");
@@ -90,10 +94,10 @@ public class App {
                     int tempOption2 = sc.nextInt();
                     switch(tempOption2){
                         case 1:
-                        newAccount.category = "program chair";
+                        newAccount.setCategory("program chair");
                         break;
                         case 2:
-                        newAccount.category = "general chair";
+                        newAccount.setCategory("general chair");
                         break;
 
                         default:
@@ -101,7 +105,7 @@ public class App {
                     }
                     break;
                     case 3:
-                    newAccount.type = "specialist";
+                    newAccount.setType("specialist");
                     System.out.println("-------------------------");
                     System.out.println("Selecione a sua categoria de especialista: ");
                     System.out.println("1 - Autor de artigo");
@@ -111,10 +115,10 @@ public class App {
                     int tempOption3 = sc.nextInt();
                     switch(tempOption3){
                         case 1:
-                        newAccount.category = "article author";
+                        newAccount.setCategory("article author");
                         break;
                         case 2:
-                        newAccount.category = "article reviewer";
+                        newAccount.setCategory("article reviewer");
                         break;
 
                         default:
@@ -123,7 +127,7 @@ public class App {
                     break;
     
                     default:
-                    System.out.println("Erro opção invalida");
+                    System.out.println("Erro: opção invalida");
                     
                 }
 
@@ -131,11 +135,11 @@ public class App {
                 sc.nextLine();
                 System.out.println("-------------------------");
                 System.out.print("Digite a sua intituição de vinculo: ");
-                newAccount.institution = sc.nextLine();
+                newAccount.setInstitution(sc.nextLine());
 
                 System.out.println("-------------------------");
                 System.out.print("Digite sua senha: ");
-                newAccount.password = sc.nextLine();
+                newAccount.setPassword(sc.nextLine());
     
     
                 usersList.add(newAccount);
@@ -147,42 +151,42 @@ public class App {
 
         do{
             System.out.println("-------------------------");
-            System.out.println("Bem-vindo ao Congresso Brasileiro de Programação Orientada a Objeto, " + loggedUser.name);
+            System.out.println("Bem-vindo ao Congresso Brasileiro de Programação Orientada a Objeto, " + loggedUser.getName());
             System.out.println("-------------------------");
-            switch(loggedUser.category){
+            switch(loggedUser.getCategory()){
                 case "participant":
                 // if(loggedUser.status == "Active"){
                 //     // the user can use all of the person methods
                 // }
-                System.out.println("Você é um " + loggedUser.category + ". Escolha o que deseja fazer:");
+                System.out.println("Você é um " + loggedUser.getCategory() + ". Escolha o que deseja fazer:");
                 System.out.println("1 - Assistir palestras");
                 System.out.println("2 - Sair");
                 System.out.println("-------------------------");
                 int tempOption = sc.nextInt();
                 case "program chair":
                 // the user can use all of the program chair and the person methods
-                System.out.println("Você é um " + loggedUser.category + ". Escolha o que deseja fazer:");
+                System.out.println("Você é um " + loggedUser.getCategory() + ". Escolha o que deseja fazer:");
                 System.out.println("1 - Assistir palestras");
                 System.out.println("2 - Sair");
                 System.out.println("-------------------------");
                 int tempOption1 = sc.nextInt();
                 case "general chair":
                 // the user can use all of the general chair and the person methods
-                System.out.println("Você é um " + loggedUser.category + ". Escolha o que deseja fazer:");
+                System.out.println("Você é um " + loggedUser.getCategory() + ". Escolha o que deseja fazer:");
                 System.out.println("1 - Assistir palestras");
                 System.out.println("2 - Sair");
                 System.out.println("-------------------------");
                 int tempOption2 = sc.nextInt();
                 case "article author":
                 // the user can use all of the article author and the person methods
-                System.out.println("Você é um " + loggedUser.category + ". Escolha o que deseja fazer:");
+                System.out.println("Você é um " + loggedUser.getCategory() + ". Escolha o que deseja fazer:");
                 System.out.println("1 - Assistir palestras");
                 System.out.println("2 - Sair");
                 System.out.println("-------------------------");
                 int tempOption3 = sc.nextInt();
                 case "article reviewer":
                 // the user can use all of the article reviewer and the person methods
-                System.out.println("Você é um " + loggedUser.category + ". Escolha o que deseja fazer:");
+                System.out.println("Você é um " + loggedUser.getCategory() + ". Escolha o que deseja fazer:");
                 System.out.println("1 - Assistir palestras");
                 System.out.println("2 - Sair");
                 System.out.println("-------------------------");
@@ -200,6 +204,6 @@ public class App {
 
         
 
-
+        sc.close();
     }
 }
