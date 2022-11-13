@@ -2,6 +2,8 @@ package MATA55.Prova2.models;
 public class Person {
     
     private String name;
+    public Integer id;
+    private String status;
     private String cpf;
     private String academicTitle;
     private String birthdate;
@@ -9,6 +11,8 @@ public class Person {
     private String category;
     private String institution;
     private String password;
+
+    public Person(){ this.status = "AWAITING"; }
 
     public void setName(String name){ this.name = name; }
 
@@ -25,6 +29,10 @@ public class Person {
     public void setBirthdate(String birthdate){ this.birthdate = birthdate; }
 
     public String getBirthdate(){ return this.birthdate; }
+
+    public String getStatus(){ return this.status; }
+
+    public void setStatus(String status){ this.status = status; }
 
     public String getType(){ return this.type; }
 

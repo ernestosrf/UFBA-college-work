@@ -1,14 +1,31 @@
 package MATA55.Prova2;
 import java.util.Scanner;
 import java.util.ArrayList;
+
+import MATA55.Prova2.models.ArticleAuthor;
+import MATA55.Prova2.models.ArticleReviewer;
+import MATA55.Prova2.models.GeneralChair;
+import MATA55.Prova2.models.Participant;
 import MATA55.Prova2.models.Person;
+import MATA55.Prova2.models.ProgramChair;
 
 public class App {
     public static void main(String[] args) throws Exception {
         
         ArrayList<Person> usersList = new ArrayList();
+        ArrayList<Participant> participantsList = new ArrayList();
+        ArrayList<ArticleAuthor> articleAuthorList = new ArrayList();
+        ArrayList<ArticleReviewer> articleReviewerList = new ArrayList();
+        ArrayList<ProgramChair> programChairsList = new ArrayList();
+        ArrayList<GeneralChair> generalChairList = new ArrayList();
         
         Person loggedUser = null;
+        Participant loggedParticipant = null;
+        ArticleAuthor loggedAuthor = null;
+        ArticleReviewer loggedReviewer = null;
+        ProgramChair loggedProgramC = null;
+        GeneralChair loggedGeneralC = null;
+        int idCounter = 0;
 
         Scanner sc = new Scanner(System.in);
         int optionMenu=0;
@@ -38,7 +55,7 @@ public class App {
                     
 
                     for(int i = 0 ; i< usersList.size(); i++){
-                        if(usersList.get(i).getCpf().equals(cpf) ||usersList.get(i).getPassword().equals(password)){
+                        if(usersList.get(i).getCpf().equals(cpf) && usersList.get(i).getPassword().equals(password)){
                             loggedUser  = usersList.get(i);
                         }
                     }
@@ -80,8 +97,8 @@ public class App {
     
                 switch(tempOption){
                     case 1:
-                    newAccount.setType("participant");
-                    newAccount.setCategory("participant");
+                    newAccount.setType("Participante");
+                    newAccount.setCategory("Participante");
                     break;
                     case 2:
                     newAccount.setType("organizer");
@@ -94,10 +111,10 @@ public class App {
                     int tempOption2 = sc.nextInt();
                     switch(tempOption2){
                         case 1:
-                        newAccount.setCategory("program chair");
+                        newAccount.setCategory("Program Chair");
                         break;
                         case 2:
-                        newAccount.setCategory("general chair");
+                        newAccount.setCategory("General Chair");
                         break;
 
                         default:
@@ -115,10 +132,10 @@ public class App {
                     int tempOption3 = sc.nextInt();
                     switch(tempOption3){
                         case 1:
-                        newAccount.setCategory("article author");
+                        newAccount.setCategory("Autor de Artigo");
                         break;
                         case 2:
-                        newAccount.setCategory("article reviewer");
+                        newAccount.setCategory("Revisor de Artigo");
                         break;
 
                         default:
@@ -139,9 +156,9 @@ public class App {
 
                 System.out.println("-------------------------");
                 System.out.print("Digite sua senha: ");
-                newAccount.setPassword(sc.nextLine());
-    
-    
+                newAccount.setPassword(sc.nextLine());    
+                newAccount.id = idCounter;
+                idCounter+=1;
                 usersList.add(newAccount);
             } 
             
@@ -154,55 +171,40 @@ public class App {
             System.out.println("Bem-vindo ao Congresso Brasileiro de Programação Orientada a Objeto, " + loggedUser.getName());
             System.out.println("-------------------------");
             switch(loggedUser.getCategory()){
-                case "participant":
-                // if(loggedUser.status == "Active"){
-                //     // the user can use all of the person methods
-                // }
-                System.out.println("Você é um " + loggedUser.getCategory() + ". Escolha o que deseja fazer:");
-                System.out.println("1 - Assistir palestras");
-                System.out.println("2 - Sair");
+                case "Participante":
+                if(loggedUser.getStatus() == "AWAITING"){
+                    System.out.println("-------------------------");
+                    System.out.println("Sua inscrição está pendente de validação. Aguarde.");  
+                    break;                 
+                }
                 System.out.println("-------------------------");
+                System.out.println("Selecione a opção desejada: ");
+                System.out.println("1 - Autor de artigo");
+                System.out.println("2 - Revisor de artigo");
+                System.out.println("-------------------------");
+    
                 int tempOption = sc.nextInt();
-                case "program chair":
-                // the user can use all of the program chair and the person methods
-                System.out.println("Você é um " + loggedUser.getCategory() + ". Escolha o que deseja fazer:");
-                System.out.println("1 - Assistir palestras");
-                System.out.println("2 - Sair");
-                System.out.println("-------------------------");
-                int tempOption1 = sc.nextInt();
-                case "general chair":
-                // the user can use all of the general chair and the person methods
-                System.out.println("Você é um " + loggedUser.getCategory() + ". Escolha o que deseja fazer:");
-                System.out.println("1 - Assistir palestras");
-                System.out.println("2 - Sair");
-                System.out.println("-------------------------");
-                int tempOption2 = sc.nextInt();
-                case "article author":
-                // the user can use all of the article author and the person methods
-                System.out.println("Você é um " + loggedUser.getCategory() + ". Escolha o que deseja fazer:");
-                System.out.println("1 - Assistir palestras");
-                System.out.println("2 - Sair");
-                System.out.println("-------------------------");
-                int tempOption3 = sc.nextInt();
-                case "article reviewer":
-                // the user can use all of the article reviewer and the person methods
-                System.out.println("Você é um " + loggedUser.getCategory() + ". Escolha o que deseja fazer:");
-                System.out.println("1 - Assistir palestras");
-                System.out.println("2 - Sair");
-                System.out.println("-------------------------");
-                int tempOption4 = sc.nextInt();
-
+                case "Program Chair":
+                ProgramChair newPC = new ProgramChair();
+                programChairsList.add(newPC);
+                case "General Chair":
+                GeneralChair newGC = new GeneralChair();
+                generalChairList.add(newGC);
+                case "Autor de Artigo":
+                ArticleAuthor newAA = new ArticleAuthor();
+                articleAuthorList.add(newAA);
+                case "Revisor de Artigo":
+                ArticleReviewer newAR = new ArticleReviewer();
+                articleReviewerList.add(newAR);    
             }
+
             System.out.println("-------------------------");
+            System.out.println("1 - Sair");
+            System.out.println("2 - Continuar aguardando");
+            System.out.println("-------------------------");
+
+            optionMenu = sc.nextInt();
         } while(optionMenu!=0);
-
-
-        
-
-
-
-
-        
 
         sc.close();
     }
