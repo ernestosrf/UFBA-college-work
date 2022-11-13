@@ -67,7 +67,7 @@ public class App {
 
                 System.out.println("-------------------------");
                 System.out.println("Selecione o seu tipo de participação: ");
-                System.out.println("1 - Persone");
+                System.out.println("1 - Participante");
                 System.out.println("2 - Organizador");
                 System.out.println("3 - Especialista");
                 System.out.println("-------------------------");
@@ -76,7 +76,8 @@ public class App {
     
                 switch(tempOption){
                     case 1:
-                    newAccount.type = "Person";
+                    newAccount.type = "participant";
+                    newAccount.category = "participant";
                     break;
                     case 2:
                     newAccount.type = "organizer";
@@ -146,7 +147,48 @@ public class App {
 
         do{
             System.out.println("-------------------------");
-            System.out.println("Segundo menu");
+            System.out.println("Bem-vindo ao Congresso Brasileiro de Programação Orientada a Objeto, " + loggedUser.name);
+            System.out.println("-------------------------");
+            switch(loggedUser.category){
+                case "participant":
+                // if(loggedUser.status == "Active"){
+                //     // the user can use all of the person methods
+                // }
+                System.out.println("Você é um " + loggedUser.category + ". Escolha o que deseja fazer:");
+                System.out.println("1 - Assistir palestras");
+                System.out.println("2 - Sair");
+                System.out.println("-------------------------");
+                int tempOption = sc.nextInt();
+                case "program chair":
+                // the user can use all of the program chair and the person methods
+                System.out.println("Você é um " + loggedUser.category + ". Escolha o que deseja fazer:");
+                System.out.println("1 - Assistir palestras");
+                System.out.println("2 - Sair");
+                System.out.println("-------------------------");
+                int tempOption1 = sc.nextInt();
+                case "general chair":
+                // the user can use all of the general chair and the person methods
+                System.out.println("Você é um " + loggedUser.category + ". Escolha o que deseja fazer:");
+                System.out.println("1 - Assistir palestras");
+                System.out.println("2 - Sair");
+                System.out.println("-------------------------");
+                int tempOption2 = sc.nextInt();
+                case "article author":
+                // the user can use all of the article author and the person methods
+                System.out.println("Você é um " + loggedUser.category + ". Escolha o que deseja fazer:");
+                System.out.println("1 - Assistir palestras");
+                System.out.println("2 - Sair");
+                System.out.println("-------------------------");
+                int tempOption3 = sc.nextInt();
+                case "article reviewer":
+                // the user can use all of the article reviewer and the person methods
+                System.out.println("Você é um " + loggedUser.category + ". Escolha o que deseja fazer:");
+                System.out.println("1 - Assistir palestras");
+                System.out.println("2 - Sair");
+                System.out.println("-------------------------");
+                int tempOption4 = sc.nextInt();
+
+            }
             System.out.println("-------------------------");
         } while(optionMenu!=0);
 
