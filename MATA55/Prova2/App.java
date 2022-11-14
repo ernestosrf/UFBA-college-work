@@ -177,29 +177,67 @@ public class App {
                     System.out.println("Sua inscrição está pendente de validação. Aguarde.");  
                     break;                 
                 }
-                System.out.println("-------------------------");
-                System.out.println("Selecione a opção desejada: ");
-                System.out.println("1 - Autor de artigo");
-                System.out.println("2 - Revisor de artigo");
-                System.out.println("-------------------------");
-    
-                int tempOption = sc.nextInt();
                 case "Program Chair":
                 ProgramChair newPC = new ProgramChair();
                 programChairsList.add(newPC);
+                System.out.println("-------------------------");
+                System.out.println("Selecione uma das opções abaixo: ");
+                System.out.println("1 - Listar artigos aceitos em ordem alfabética");
+                System.out.println("2 - Listar artigos negados em ordem alfabética");
+                System.out.println("3 - Ver dados de um artigo");
+                System.out.println("4 - Listar participantes do evento em ordem alfabética");                
+                System.out.println("5 - Ver avaliação dos artigos");
+                System.out.println("6 - Julgar artigos em aberto (aceitar ou rejeitar)");
+                System.out.println("-------------------------");    
+                int tempOption = sc.nextInt();
+                break;
+
                 case "General Chair":
                 GeneralChair newGC = new GeneralChair();
                 generalChairList.add(newGC);
+                System.out.println("-------------------------");
+                System.out.println("Selecione uma das opções abaixo: ");
+                System.out.println("1 - Listar artigos aceitos em ordem alfabética");
+                System.out.println("2 - Listar artigos negados em ordem alfabética");
+                System.out.println("3 - Ver dados de um artigo");
+                System.out.println("4 - Listar participantes do evento em ordem alfabética");                
+                System.out.println("5 - Entregar Certificado a participantes");
+                System.out.println("6 - Julgar inscrições em aberto (validar ou invalidar)");
+                System.out.println("-------------------------");    
+                tempOption = sc.nextInt();
+                break;
+
                 case "Autor de Artigo":
                 ArticleAuthor newAA = new ArticleAuthor();
                 articleAuthorList.add(newAA);
+                System.out.println("-------------------------");
+                System.out.println("Selecione uma das opções abaixo: ");
+                System.out.println("1 - Listar artigos aceitos em ordem alfabética");
+                System.out.println("2 - Listar artigos negados em ordem alfabética");
+                System.out.println("3 - Ver dados de um artigo");
+                System.out.println("4 - Enviar artigo");                
+                System.out.println("5 - Ver avaliações do meu artigo");
+                System.out.println("-------------------------");    
+                tempOption = sc.nextInt();
+                break;
+
                 case "Revisor de Artigo":
                 ArticleReviewer newAR = new ArticleReviewer();
                 articleReviewerList.add(newAR);    
+                System.out.println("-------------------------");
+                System.out.println("Selecione uma das opções abaixo: ");
+                System.out.println("1 - Listar artigos aceitos em ordem alfabética");
+                System.out.println("2 - Listar artigos negados em ordem alfabética");
+                System.out.println("3 - Ver dados de um artigo");
+                System.out.println("4 - Enviar revisão de um artigo");                
+                System.out.println("5 - Ver minhas avaliações de artigos");
+                System.out.println("-------------------------");    
+                tempOption = sc.nextInt();
+                break;
             }
 
             System.out.println("-------------------------");
-            System.out.println("1 - Sair");
+            System.out.println("0 - Sair");
             System.out.println("2 - Continuar aguardando");
             System.out.println("-------------------------");
 

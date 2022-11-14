@@ -12,7 +12,7 @@ public class Article { //need 2-5 reviewers
     private String keywords;
     private Integer numberOfPages;
     private Date submissionDate;
-    public ArrayList authors; // como fazer um getter/setter disso?
+    public ArrayList<Specialists> authors; // como fazer um getter/setter disso?
     private Integer avaliation;
 
     public Article(){ 
