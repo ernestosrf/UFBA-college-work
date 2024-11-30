@@ -3,9 +3,9 @@
 using namespace std;
 
 int main() {
-    long L, Z, N, U, S;
-    cin >> L >> Z >> N >> U >> S;
-    long sum = L + Z + N + U + S;
-    cout << sum << endl;
+    int T, X;
+    cin >> T >> X;
+    int res = X % T;
+    cout << res << endl;
     return 0;
 }
