@@ -1,0 +1,12 @@
+/* .App {
+  display: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+} */
+
+.container {
+  min-width: 1557px;
+  min-height: 60vh;
+  /* margin-bottom: 5em; */
+}
