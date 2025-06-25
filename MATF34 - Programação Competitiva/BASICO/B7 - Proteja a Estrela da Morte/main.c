@@ -1,11 +1,10 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
-    int T, X;
-    cin >> T >> X;
-    int res = X % T;
-    cout << res << endl;
+    int N;
+    cin >> N;
+    if (N>=50) cout << "Ativar escudos" << endl;
+    else cout << "Susse no musse" << endl;
     return 0;
 }
